@@ -1,10 +1,25 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import ReactDOM from "react-dom/client";
+import App from "./App.tsx";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <>
+        <App />
+      </>
+    ),
+    children: [
+      /* {
+        path: "/",
+        element: <LandingPage />,
+      }, */
+    ],
+  },
+]);
+
+const rootElement = document.getElementById("root");
+
+const root = ReactDOM.createRoot(rootElement as HTMLElement);
+root.render(<RouterProvider router={router} />);
