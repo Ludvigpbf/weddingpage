@@ -1,9 +1,14 @@
+import { Outlet } from "react-router-dom";
+import Nav from "./components/Nav";
 import "./style/App.css";
 
 function App() {
   return (
     <>
-      <h1>Hello World</h1>
+      <Nav></Nav>
+      <div className="outlet">
+        <Outlet></Outlet>
+      </div>
     </>
   );
 }
